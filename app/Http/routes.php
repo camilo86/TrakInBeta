@@ -24,6 +24,13 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+/*
 Route::get('home', ['middleware' => 'auth', function() {
    return view('user/home');
 }]);
+*/	
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('home', 'MeetingController@index');
+	Route::get('register/meeting', 'MeetingController@create');
+});

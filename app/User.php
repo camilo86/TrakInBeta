@@ -37,7 +37,8 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
-    public function meetings() {
-        return $this->hasMany('App\Meeting');
+    public function meetings()
+    {
+        return $this->hasMany('\App\Meeting');
     }
 }
